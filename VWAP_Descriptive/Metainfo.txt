@@ -1,0 +1,37 @@
+
+Name of QuantLet : VWAP_Descriptive
+
+Published in : The behavior of electricity prices at the German intraday market
+
+Description : 'Plot and tables to describe VWAP and exogenous variables'
+
+
+Keywords : 
+- plot
+- scatterplot
+- VWAP
+- residual load
+- renewable energy
+- correlation
+- descriptive-statistics
+
+See also : 
+- VWAP_Forecast
+- VWAP_FPCA_Training
+- VWAP_FPCA_Forecast
+- VWAP_FASTEC_Training
+- VWAP_FASTEC_Forecast
+- VWAP_Differenceplot
+- VWAP_Polygonplot
+- VWAP_PriceLoadSequence
+- VWAP_Surfaceplot
+
+
+
+
+Author : Johannes Stoiber
+
+Submitted : Sat, 22 April 2017 by Johannes Stoiber
+
+Datafiles : 
+- VWAP.Rdata

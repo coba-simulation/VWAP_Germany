@@ -1,0 +1,35 @@
+
+Name of QuantLet : VWAP_Surfaceplot
+
+Published in : The behavior of electricity prices at the German intraday market
+
+Description : 'Plot intradaily curves of VWAP and residual laod as surface plot.'
+
+Keywords : 
+- surface
+- functional data
+- electricity
+- residual load
+- VWAP
+- time-series
+- Functional time series
+
+See also : 
+- VWAP_Forecast
+- VWAP_FPCA_Training
+- VWAP_FPCA_Forecast
+- VWAP_FASTEC_Training
+- VWAP_FASTEC_Forecast
+- VWAP_Differenceplot
+- VWAP_Polygonplot
+- VWAP_PriceLoadSequence
+- VWAP_Descriptive
+- FPCA_Electricity_Simulation
+- FPCA_Electricity_Application
+
+Author : Johannes Stoiber
+
+Submitted : Sat, 22 April 2017 by Johannes Stoiber
+
+Datafiles : 
+- VWAP.Rdata

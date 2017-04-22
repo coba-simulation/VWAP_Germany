@@ -1,0 +1,36 @@
+
+Name of QuantLet : VWAP_Differenceplot
+
+Published in : The behavior of electricity prices at the German intraday market
+
+Description : 'Plot of difference between DA spot prices and VWAP of intraday trading vs forecast error of residual load and renewable energy production'
+
+
+Keywords : 
+- plot
+- scatterplot
+- VWAP
+- residual load
+- renewable energy
+
+See also : 
+- VWAP_Forecast
+- VWAP_Differenceplot
+- VWAP_Polygonplot
+- VWAP_PriceLoadSequence
+- VWAP_Descriptive
+- VWAP_FPCA_Training
+- VWAP_FPCA_Forecast
+- VWAP_FASTEC_Training
+- VWAP_FASTEC_Forecast
+- VWAP_PriceLoadSequence
+- VWAP_Surfaceplot
+
+
+
+Author : Johannes Stoiber
+
+Submitted : Sat, 22 April 2017 by Johannes Stoiber
+
+Datafiles : 
+- VWAP.Rdata

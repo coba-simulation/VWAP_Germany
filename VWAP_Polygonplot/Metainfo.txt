@@ -1,0 +1,34 @@
+
+Name of QuantLet : VWAP_Polygonplot
+
+Published in : The behavior of electricity prices at the German intraday market
+
+Description : 'Polygonplot that marks enrgy porduction sources for a winter and summer day.'
+
+Keywords : 
+- renewable energy
+- residual load
+- VWAP
+- Functional time series
+- polygon
+
+See also : 
+- VWAP_Forecast
+- VWAP_FPCA_Training
+- VWAP_FPCA_Forecast
+- VWAP_FASTEC_Training
+- VWAP_FASTEC_Forecast
+- VWAP_Differenceplot
+- VWAP_PriceLoadSequence
+- VWAP_Descriptive
+- FPCA_Electricity_Simulation
+- FPCA_Electricity_Application
+- VWAP_Surfaceplot
+
+
+Author : Johannes Stoiber
+
+Submitted : Sat, 22 April 2017 by Johannes Stoiber
+
+Datafiles : 
+- VWAP.Rdata

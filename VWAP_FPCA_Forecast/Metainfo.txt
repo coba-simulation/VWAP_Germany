@@ -1,0 +1,39 @@
+
+Name of QuantLet : VWAP_FPCA_Forecast
+
+Published in : The behavior of electricity prices at the German intraday market
+
+Description : 'Forecast of daily VWAP curves with FPCA VAR / FPCA ARIMA model. Generate table with error measures and plots of daily curves.'
+
+Keywords : 
+- expectile
+- FPCA
+- Short-term energy price forecasting
+- VWAP
+- High-dimensional data analysis
+- Functional time series
+- Forecast
+- VAR
+- Arima
+- pca
+- factor scores
+
+See also : 
+- FASTECChinaTemper2008
+- FPCA_Electricity_Application
+- electricitypriceforecasting
+- LQRCheck
+- VWAP_Forecast
+- VWAP_FPCA_Training
+- VWAP_FASTEC_Training
+- VWAP_FASTEC_Forecast
+- FPCA_Electricity_Simulation
+- FPCA_Electricity_Application
+- VWAP_Surfaceplot
+
+Author : Johannes Stoiber
+
+Submitted : Sat, 22 April 2017 by Johannes Stoiber
+
+Datafiles : 
+- VWAP.Rdata

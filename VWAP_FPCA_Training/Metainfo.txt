@@ -1,0 +1,39 @@
+
+Name of QuantLet : VWAP_FPCA_Training
+
+Published in : The behavior of electricity prices at the German intraday market
+
+Description : 'Application of FPCA on the training data.  Fit VAR and Arima model on FPC scores. Generate plots and tables with error measures, FPC explanatory power, FPC scores and FPC eigenfunctions.'
+
+Keywords : 
+- expectile
+- FPCA
+- Short-term energy price forecasting
+- VWAP
+- High-dimensional data analysis
+- Functional time series
+- VAR
+- Arima
+- pca
+- factor scores
+
+See also : 
+- FASTECChinaTemper2008
+- FPCA_Electricity_Application
+- electricitypriceforecasting
+- LQRCheck
+- VWAP_Forecast
+- VWAP_FPCA_Training
+- VWAP_FPCA_Forecast
+- VWAP_FASTEC_Forecast
+- FPCA_Electricity_Simulation
+- FPCA_Electricity_Application
+- VWAP_Surfaceplot
+
+
+Author : Johannes Stoiber
+
+Submitted : Sat, 22 April 2017 by Johannes Stoiber
+
+Datafiles : 
+- VWAP.Rdata

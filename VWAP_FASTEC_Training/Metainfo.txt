@@ -1,0 +1,38 @@
+
+Name of QuantLet : VWAP_FASTEC_Training
+
+Published in : The behavior of electricity prices at the German intraday market
+
+Description : 'Application of FASTEC on the training data. Fit VAR model on factor laodings. Generate plots of daily curves and tables with error measures.'
+
+Keywords : 
+- quantile regression
+- FASTEC
+- Short-term energy price forecasting
+- VWAP
+- High-dimensional data analysis
+- Functional time series
+- VAR
+- factor loadings
+- pca
+
+See also : 
+- FASTECChinaTemper2008
+- FPCA_Electricity_Application
+- electricitypriceforecasting
+- LQRCheck
+- VWAP_Forecast
+- VWAP_FPCA_Training
+- VWAP_FPCA_Forecast
+- VWAP_FASTEC_Forecast
+- FPCA_Electricity_Simulation
+- FPCA_Electricity_Application
+- VWAP_Surfaceplot
+
+
+Author : Johannes Stoiber
+
+Submitted : Sat, 22 April 2017 by Johannes Stoiber
+
+Datafiles : 
+- VWAP.Rdata
