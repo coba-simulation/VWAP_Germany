@@ -25,6 +25,7 @@ lapply(libraries, require, quietly = TRUE, character.only = TRUE)
 ###############################################################################
 
 # specifiy paht here:
+setwd("C:/Users/Johannes/Documents/GitHub/VWAP_Forecast")
 df.data = read.csv("vwap_data.csv")
 
 rel_act = matrix(df.data[,3], ncol = 24, byrow = TRUE, dimnames = list(unique(df.data[,1]), unique(df.data[,2])))
@@ -51,19 +52,6 @@ holiday_dummy = as.numeric(rownames(vwap) %in% c("2015-01-01", "2015-01-02", "20
 ###############################################################################
 ##                             Helperfunctions                               ##
 ###############################################################################
-
-
-
-# function to import forecast data
-prepare <- function(infile, from, to){
-  X = t(read.csv(infile, fill = T, header = TRUE, sep = ";", dec = ",", stringsAsFactors = FALSE, row.names = 1))
-  colnames(X) = substr(colnames(X), 1, 5)
-  # for each day, set date as the forecast is made for. csv file contains issue date of forecast
-  end = dim(X)[1]-1
-  rownames(X)[1:end] = as.character(seq(as.Date(from), as.Date(to), by = "day"))
-  return(data.frame(X)[-end, ])
-}
-
 
 
 # function to compute fourier series
@@ -346,21 +334,6 @@ KarLoe.ar = function(num, model, mean, fd, xsim, season){
   return(f.curve)              
 }
 
-
-# function to test how often expectiles / quantiles do cross
-exp.cross = function(lower, middle, upper, colnames = c("0.5 - 0.01 |", "0.99 - 0.50")){
-  exp.cross = array(NA, dim=c(length(middle), 2))
-  colnames(exp.cross) = colnames
-  for (ff in 1:length(middle)){
-    model.1 = list(c(lower[[ff]]), c(middle[[ff]]), c(upper[[ff]]))
-    # compute difference between expectiles
-    l2 = list(model.1[[2]] - model.1[[1]], model.1[[3]] - model.1[[2]])
-    # shows how often (higher - lower expectile) is negative.
-    exp.cross[ff, ] = sapply(X = c(1, 2), FUN = function(X){sum(l2[[X]]<0)})
-  }
-  return(exp.cross)
-}
-
 # function to compute rolling window RMSE
 rollingRMSE = function(r.length, origin, forc){
   err2 = (origin - forc)^2
@@ -393,7 +366,6 @@ mqr = function(Y, X, tau, lambda, kappa = 1e-04, epsilon = 10^(-6), itt = 2000) 
   p           = ncol(X)
   X2norm      = base::norm(X, type = "2")
   #kappa       = 1e-04  # instead of epsilon/(2*m*n) by theory, like Chen,Lin,Kim,Carbonell and Xing we use fixed kappa, the value we choose here is equivalent to epsilon = 50.
- # kappa       = ekappa
   L           = X2norm^2/(kappa * m^2 * n^2)
   Omega       = matrix(0, nrow = p, ncol = m)
   delta       = 1      # step size
@@ -458,7 +430,6 @@ simtune = function(m, tau, XX, alpha = 0.1, B = 500, const = 2) {
 
 # add seasonal and estmiated stochastic component 
 curve.mqr = function(X, U, D, fitted.model, season, startid){
-  # X = X.val; U = econU[[2]]; D = econd[[2]]; fitted.model = fit.VAR[[2]]; season = DSC_wind; startid = lag.l
   curve.mat = X %*% U %*% D %*% t(fitted.model)
   diffs     = startid -1 - (dim(season)[2] - dim(curve.mat)[2])
   # take into account that diffs can be 0
@@ -474,14 +445,13 @@ curve.mqr = function(X, U, D, fitted.model, season, startid){
 
 # Add forecasted of seasonal and  stochastic component 
 forecast.mqr = function(X, U, D, fitted.model, season){
-  #X = X.val; U = econU[[2]]; D = econd[[2]]; fitted.model = pred.VAR[[2]]; season = DSC_Forecast
   curve.mat = X %*% U %*% D %*% sapply(fitted.model[[1]], "[[",1)
   result      = curve.mat + season
   return(result)
 }
 
 
-# Count Percentage of vwap between predicted tau range #############
+# Count Percentage of vwap between predicted tau range 
 hit.range = function(band.array, origin, lower, upper){
   sum(c(band.array[, , lower]) < c(origin) & c(band.array[, , upper]) > c(origin)) / length(c(band.array[, , upper]))
 }

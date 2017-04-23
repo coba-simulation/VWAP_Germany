@@ -368,7 +368,3 @@ pve = sapply(X = c(1:lt), FUN = function(X){diag(econd[[X]])^2 / sum(diag(econd[
 rownames(pve) = c("Factor 1", "Factor 2", "Factor 3", "Factor 4")
 colnames(pve) = as.character(TAU)
 stargazer(pve, type = "text")
-
-
-
-
