@@ -26,5 +26,3 @@ plot(c(t(p.diff)) ~ c(t(ren.diff)),
      ylab = "Price difference (EUR)")
 abline(h = 0, v = 0, col = "grey")
 dev.off()
-
-

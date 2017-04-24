@@ -96,6 +96,7 @@ for (i in 1:n) {
   mfit[i, , ] = expectreg.ls(resid_data_yearly[, i] ~ rb(xsim, "pspline", center = FALSE),
                              estimate = "sheet", expectiles = tau, smooth = "gcv")$fitted
 }
+
 # 
 time = Sys.time() - start; time
 
@@ -398,6 +399,3 @@ lines(RMSE.window[, 4], col = "blue", lwd = 2)      # seasonal trend
 lines(RMSE.window[, 5], col = "darkgreen", lwd = 2) # da spot
 lines(RMSE.window[, 3], col = "red", lwd = 2)       # spot arima
 dev.off()
-
-
-

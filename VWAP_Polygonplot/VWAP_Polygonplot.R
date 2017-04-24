@@ -30,6 +30,3 @@ for (day in c(2, 6)){
   polygon(c(x, rev(x)), c(y3, rev(y2)), col= "orange")
   axis(1, c(1, 7, 13, 19, 24), c("00:00", "06:00", "12:00", "18:00", "23:00"), cex.axis = 1.2)
 }
-
-
-

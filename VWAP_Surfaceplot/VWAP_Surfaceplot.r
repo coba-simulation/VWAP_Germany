@@ -20,7 +20,7 @@ wireframe(as.matrix(vwap),
           colorkey = TRUE,
           col.regions = colorRampPalette(c("black", "red", "yellow", "springgreen", "royalblue", "blue"))(100),
           screen=list(x = -90, y = 120, z = 0),
-          trellis.par.set(list(axis.text=list(cex=1.5))))
+          trellis.par.set(list(axis.text = list(cex = 1.5))))
 
 
 
@@ -34,11 +34,5 @@ wireframe(as.matrix(rel_act),
           drape = TRUE,
           colorkey = TRUE,
           col.regions = colorRampPalette(c("black", "red", "yellow", "springgreen", "royalblue", "blue"))(100),
-          screen=list(x = -90, y = 130, z = 0),
-          trellis.par.set(list(axis.text=list(cex=1.5))))
-
-
-
-
-
-
+          screen = list(x = -90, y = 130, z = 0),
+          trellis.par.set(list(axis.text = list(cex = 1.5))))
