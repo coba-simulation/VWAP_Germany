@@ -60,6 +60,4 @@ plot(c(t(p.diff)) ~ c(t(ren.diff)),
 abline(h = 0, v = 0, col = "grey")
 dev.off()
 
-
-
 ```

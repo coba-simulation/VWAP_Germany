@@ -409,8 +409,4 @@ rownames(pve) = c("Factor 1", "Factor 2", "Factor 3", "Factor 4")
 colnames(pve) = as.character(TAU)
 stargazer(pve, type = "text")
 
-
-
-
-
 ```
