@@ -6,6 +6,10 @@
 ##                                                                           ##
 ###############################################################################
 
+# Close windows and clear variables                                                                   
+graphics.off()
+rm(list = ls(all=TRUE))
+
 # load the R Environment with prepared data and packages
 load("VWAP.RData")
 libraries = c("stargazer", "plyr","moments","zoo","forecast","urca","expectreg","fda.usc", "vars","lattice","tseries", "abind","sm","quantreg")
@@ -226,8 +230,11 @@ arima_results = list( "DA spot Arima"    = lapply(arima.spot, "[", TRUE, c((lag.
 # Plot of mean functions
 plot(NA, ylim = c(range(exp.mean)), xlim = c(1,hour),
      main = expression(paste("Mean function ", mu(t))),
-     ylab = "Expectile function",
+     ylab = "",
+     yaxt = "n",
+     xaxt = "n",
      xlab = "Hour")
+axis(1, c(1, 7, 13, 19, 24), c("00:00", "06:00", "12:00", "18:00", "23:00"), cex.axis = 1.5)
 for (i in 1:7){lines(exp.mean[,i])}
 dev.off()
 

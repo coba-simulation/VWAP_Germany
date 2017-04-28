@@ -4,6 +4,10 @@
 ##                                                                           ##
 ###############################################################################
 
+# Close windows and clear variables                                                                   
+graphics.off()
+rm(list = ls(all=TRUE))
+
 # load the R Environment with prepared data
 load("VWAP.RData")
 

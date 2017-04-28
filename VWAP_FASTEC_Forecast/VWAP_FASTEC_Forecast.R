@@ -5,6 +5,10 @@
 ##                                                                           ##
 ###############################################################################
 
+# Close windows and clear variables                                                                   
+graphics.off()
+rm(list = ls(all=TRUE))
+
 # load the R Environment with prepared data and packages
 load("VWAP.RData")
 libraries = c("stargazer", "plyr","moments","zoo","forecast","urca","expectreg","fda.usc", "vars","lattice","tseries", "abind","sm","quantreg","matrixStats")
@@ -177,6 +181,7 @@ Sys.time() - start
 ##                                                                           ##
 ##       Table:  Model performance due to RMSE                               ##
 ##       Plot:   Daily Curves with forecast from best model                  ##
+##       Plot:   Dispersion of forecast intervals by hours                   ##
 ##                                                                           ##
 ###############################################################################
 
@@ -274,3 +279,30 @@ for(a in 2:3){
   axis(1, c(1, 7, 13, 19, 24), c("00:00", "06:00", "12:00", "18:00", "23:00"), cex.axis = 1.2)
 }
 dev.off()
+
+# Evaluate forecast intervals by hours
+FI01 = forc.spot.SC[,,7] -  forc.spot.SC[,,1]
+FI05 = forc.spot.SC[,,6] -  forc.spot.SC[,,2]
+FI25 = forc.spot.SC[,,5] -  forc.spot.SC[,,3]
+df   = cbind(t(apply(FI01, 1, FUN = function(x){cbind(mean(x), sd(x))})),
+             t(apply(FI05, 1, FUN = function(x){cbind(mean(x), sd(x))})),
+             t(apply(FI25, 1, FUN = function(x){cbind(mean(x), sd(x))})))
+colnames(df) = c("mean_01", "sd_01", "mean_05", "sd_05", "mean_25", "sd_25")
+
+
+# boxplot by hours
+par(cex.lab = 1.5, cex.axis= 1.5, cex.main = 1.5 )
+boxplot(t(FI01), 
+        main = "Dispersion of forecast interval size",
+        xaxt = "n", 
+        xlab = "Hour",
+        ylab = "EUR")
+points(c(1:24) , df[,1], col = "red", pch = 20)
+axis(1, at = c(1:24), labels = substr(colnames(rel_mat), 5,9))
+
+# interval coverage by hours
+tf_low  = (origin < forc.spot.SC[,,1])
+tf_high = (origin > forc.spot.SC[,,7])
+tf_over = tf_low + tf_high
+hourly  = 1 - apply(tf_over, 1, sum)/365
+names(hourly) = substr(colnames(rel_mat), 5, 9)

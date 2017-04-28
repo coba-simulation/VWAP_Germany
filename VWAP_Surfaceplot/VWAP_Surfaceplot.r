@@ -4,6 +4,10 @@
 ##                                                                           ##
 ###############################################################################
 
+# Close windows and clear variables                                                                   
+graphics.off()
+rm(list = ls(all=TRUE))
+
 load("VWAP.RData")
 libraries = c("lattice")
 lapply(libraries, function(x)if(!(x %in% installed.packages())){install.packages(x)})

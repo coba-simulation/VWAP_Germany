@@ -5,6 +5,10 @@
 ##                                                                           ##
 ###############################################################################
 
+# Close windows and clear variables                                                                   
+graphics.off()
+rm(list = ls(all=TRUE))
+
 # libraries
 libraries = c("stargazer", "forecast")
 lapply(libraries,function(x)if(!(x %in% installed.packages())){install.packages(x)})
@@ -12,8 +16,8 @@ lapply(libraries,require,quietly=TRUE,character.only=TRUE)
 
 
 # load and prepare data with forecast errors
-FPCA_bic   = read.csv(paste0(path,"/VWAP_Forecast_DM/Forecast_FPCA_BIC.csv"))
-FASTEC_bic = read.csv(paste0(path,"/VWAP_Forecast_DM/Forecast_FASTEC_BIC.csv"))
+FPCA_bic   = read.csv("Forecast_FPCA_BIC.csv")
+FASTEC_bic = read.csv("Forecast_FASTEC_BIC.csv")
 
 # BIC models as dataframe
 bic_error  = data.frame(FPCA_bic[, 1:5], FASTEC_bic, FPCA_bic[, 6:7] ) 

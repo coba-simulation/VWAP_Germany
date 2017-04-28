@@ -6,6 +6,10 @@
 ##                                                                           ##
 ###############################################################################
 
+# Close windows and clear variables                                                                   
+graphics.off()
+rm(list = ls(all=TRUE))
+
 # load the R Environment with prepared data and packages
 load("VWAP.RData")
 libraries = c("stargazer", "plyr","moments","zoo","forecast","urca","expectreg","fda.usc", "vars","lattice","tseries", "abind","sm","quantreg","matrixStats", "svdvis")
@@ -329,7 +333,7 @@ pc.m           = X.val %*% econU[[qt.5]] %*% econd[[qt.5]]
 # construct the plot for Factorcurves
 par(mfrow = c(2, 2), mar=c(5.2, 6.1, 2, 2)) 
 for ( i in 1:4){
-  plot(pc.m[, i], type = "l", xlab = "", xaxt = "n", ylab = paste0("Factor ", i),
+  plot(pc.m[, i], type = "l", xlab = "Hour", xaxt = "n", ylab = paste0("Factor ", i),
        cex.lab = 2, cex.axis = 2, lwd = 3)
   abline(h = 0, lty = 2)
   axis(1,c(1, 7, 13, 19, 24), c("00:00", "06:00", "12:00", "18:00", "23:00"), cex.axis = 1.5)
@@ -342,7 +346,7 @@ dev.off()
 # Factor loadings 
 par(mfrow = c(4, 1), mar=c(5.2, 6.1, 2, 0.5)) 
 for ( i in 1:4){
-  plot(econV[[qt.5]][, i], type = "l", xlab = "", ylab = bquote(psi[.(i)]),
+  plot(econV[[qt.5]][, i], type = "l", xlab = "Day", ylab = bquote(psi[.(i)]),
        ylim = c(range(econV[[qt.5]])),
        cex.lab = 2, cex.axis = 2, lwd = 3)
   abline(h = 0, lty = 2)
