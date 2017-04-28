@@ -39,6 +39,7 @@ See also :
 - VWAP_PriceLoadSequence
 - VWAP_Descriptive
 - VWAP_Surfaceplot
+- VWAP_Forecast_DM
 
 
 Author : Johannes Stoiber
